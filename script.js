@@ -3,12 +3,9 @@ let csvData;
 function readCSV() {
     const fileInput = document.getElementById('fileInput');
     const file = fileInput.files[0];
-
     if (file) {
         const formData = new FormData();
         formData.append('file', file);
-
-       
         fetch('http://localhost:4000/api/csv/upload', {
             method: 'POST',
             body: formData
@@ -16,7 +13,6 @@ function readCSV() {
             .then(response => response.text())
             .then(data => {
                 console.log(data);
-                
                 getCsvData();
             })
             .catch(error => {
@@ -25,14 +21,12 @@ function readCSV() {
     }
 }
 
+
 function getCsvData() {
-  
     fetch('http://localhost:4000/api/csv/get-csv-data')
         .then(response => response.json())
         .then(data => {
-           
             csvData = data;
-          
             displayGrid(csvData);
         })
         .catch(error => {
@@ -40,17 +34,12 @@ function getCsvData() {
         });
 }
 
+
 function displayGrid(data) {
     const gridContainer = document.getElementById('gridContainer');
-
-    // Clear existing content in the grid container
     gridContainer.innerHTML = '';
-
-    // Create a table element
     const table = document.createElement('table');
     table.border = '1';
-
-    // Create the header row
     const headerRow = document.createElement('tr');
     Object.keys(data[0]).forEach(key => {
         const th = document.createElement('th');
@@ -58,8 +47,6 @@ function displayGrid(data) {
         headerRow.appendChild(th);
     });
     table.appendChild(headerRow);
-
-    // Create rows with data
     data.forEach(rowData => {
         const row = document.createElement('tr');
         Object.values(rowData).forEach(value => {
@@ -69,31 +56,21 @@ function displayGrid(data) {
         });
         table.appendChild(row);
     });
-
-    // Append the table to the grid container
     gridContainer.appendChild(table);
 }
+
 
 function downloadXLSX() {
     fetch('http://localhost:4000/api/csv/convert-to-excel')
         .then(response => response.blob())
         .then(blob => {
-
             const url = window.URL.createObjectURL(new Blob([blob]));
             const a = document.createElement('a');
             a.href = url;
             a.download = 'converted.xlsx';
-
-
             document.body.appendChild(a);
-
-
             a.click();
-
-
             document.body.removeChild(a);
-
-
             console.log('Downloading XLSX...');
         })
         .catch(error => {
