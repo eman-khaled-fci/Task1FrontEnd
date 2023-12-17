@@ -38,11 +38,11 @@ The CSV Reader Web Application allows users to upload CSV files, view the conten
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/your-csv-reader.git
+   git clone https://github.com/eman-khaled-fci/Task1FrontEnd.git
 
 2. Navigate to the project directory:
     ```bash
-    cd your-csv-reader
+    cd Task1FrontEnd
 3. Install dependencies:
     ```bash
     npm install
