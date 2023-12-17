@@ -6,8 +6,8 @@ A simple web application for reading and converting CSV files to Excel format.
 - [Demo](#demo)
 - [Overview](#overview)
 - [Features](#features)
+- [Used Technologies](#used-technologies)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 - [Usage](#usage)
 
@@ -25,13 +25,14 @@ The CSV Reader Web Application allows users to upload CSV files, view the conten
 - Upload CSV files
 - View CSV content in a table
 - Convert CSV to Excel (XLSX) format
+  
+## Used Technologies
+
+- HTML
+- CSS
+- JavaScript
 
 ## Getting Started
-
-### Prerequisites
-
-- Node.js
-- npm
 
 ### Installation
 
@@ -45,6 +46,7 @@ The CSV Reader Web Application allows users to upload CSV files, view the conten
 3. Install dependencies:
     ```bash
     npm install
+    
 ### Usage
 1. Open index.html in your web browser.
 2. Click on the "Read CSV" button to upload and display the CSV content.
